@@ -10,9 +10,18 @@ describe('AppComponent', function () {
   let comp: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
 
+  class MockHomeComponent { }
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppComponent ]
+      declarations: [ AppComponent ],
+      imports: [ RouterTestingModule.withRoutes([
+        {
+          path: 'home',
+          component: MockHomeComponent
+        }
+      ])
+      ]
     })
     .compileComponents();
   }));
@@ -28,7 +37,15 @@ describe('AppComponent', function () {
   it('should have expected <h1> text', () => {
     fixture.detectChanges();
     const h1 = de.nativeElement;
+    console.log(h1.innerText);
     expect(h1.innerText).toMatch(/angular/i,
       '<h1> should say something about "Angular"');
   });
+
+  // it('Should navigate to the home tab when home is clicked', () => {   
+  //      spyOn(comp.router, 'navigate');
+  //      expect(comp.router.navigate).toHaveBeenCalledWith(['/home']);
+  //      expect(comp.router.navigate).toHaveBeenCalledTimes(1);
+  // });
+
 });

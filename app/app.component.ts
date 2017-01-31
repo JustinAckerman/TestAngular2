@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { Router }           from '@angular/router';
 
 @Component({
   selector: 'my-app',
@@ -12,4 +13,9 @@ import { RouterModule, Routes } from '@angular/router';
     <router-outlet name="popup"></router-outlet>
   `,
 })
-export class AppComponent  { name = 'Angular'; }
+export class AppComponent  { 
+  name = 'Angular';
+  constructor(public router: Router) {
+    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+  } 
+}

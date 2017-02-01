@@ -8,6 +8,7 @@ import { Router }           from '@angular/router';
    <nav>
   <a routerLink="home" routerLinkActive="active">Home</a>
   <a routerLink="about" routerLinkActive="active">About</a>
+  <a routerLink="chart" routerLinkActive="active">Chart</a>
   </nav>
     <router-outlet></router-outlet>
     <router-outlet name="popup"></router-outlet>

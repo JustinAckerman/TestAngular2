@@ -11,6 +11,7 @@ import { SelectivePreloadingStrategy } from './selective-preloading-strategy';
 import { PageNotFoundComponent }    from './not-found.component';
 import { HomeComponent }            from './components/home/home.component'
 import { AboutComponent }           from './components/about/about.component'
+import { ChartComponent }           from './components/chart/chart.component'
 
 const appRoutes: Routes = [
 //   {
@@ -33,7 +34,7 @@ const appRoutes: Routes = [
 //     pathMatch: 'prefix',
 //     redirectTo: '/main'
 //   },
-  { path: '',   component: HomeComponent, pathMatch: 'full' },
+  { path: '',   component: ChartComponent, pathMatch: 'full' },
 
   { path: 'home',
     component: HomeComponent    
@@ -42,6 +43,11 @@ const appRoutes: Routes = [
    { path: 'about',
     component: AboutComponent
   },
+
+   { path: 'chart',
+    component: ChartComponent
+  },
+
 
   { path: '**', component: PageNotFoundComponent }
 ];

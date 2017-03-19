@@ -28,16 +28,22 @@ class App {
 
   // Configure API endpoints.
   private routes(): void {
+    console.log("test32");
+    console.log("dir: " + __dirname + '/../../../../dist');
+    this.express.use('/', express.static(__dirname + '/../../../../dist'));
 
     //api routes
     this.express.use('/api/v1/heroes5', HeroRouter);
 
       // all other routes are handled by Angular
-    let router = express.Router();  
-    router.get('/', (req, res) => {
-      res.sendFile(path.join(__dirname,'../../../index.html'));
-    });
-    this.express.use('/', router);
+    // let router = express.Router();  
+    // router.get('/*', (req, res) => {
+    //   res.sendFile(path.join(__dirname,'../../../index.html'));
+    // });
+    // this.express.use('/', router);
+      this.express.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname,'../../../index.html'));
+  });
 
   }
 

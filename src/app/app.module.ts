@@ -22,6 +22,7 @@ export class AppModule {
   // Diagnostic only: inspect router configuration 
 
   constructor(public router: Router) {
-    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+    console.log("app module constructor");
+    // console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
   }
 }

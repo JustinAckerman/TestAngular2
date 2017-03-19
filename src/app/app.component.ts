@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Router }           from '@angular/router';
 
 @Component({
-  selector: 'my-app',
+  selector: 'app-root',
   template: `<h1>Hello {{name}}</h1>
    <nav>
   <a routerLink="home" routerLinkActive="active">Home</a>
@@ -17,6 +17,7 @@ import { Router }           from '@angular/router';
 export class AppComponent  { 
   name = 'Angular';
   constructor(public router: Router) {
-    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+    console.log("app component constructor");
+    //console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
   } 
 }

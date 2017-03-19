@@ -13,6 +13,7 @@ class App {
 
   //Run configuration methods on the Express instance.
   constructor() {
+    console.log("constructing server app");
     this.express = express();
     this.middleware();
     this.routes();
@@ -27,35 +28,17 @@ class App {
 
   // Configure API endpoints.
   private routes(): void {
-    /* This is just to get up and running, and to make sure what we've got is
-     * working so far. This function will change when we start to add more
-     * API endpoints */
-    let router = express.Router();
-    // placeholder route handler
-    router.get('/*', (req, res, next) => {
 
-      // res.json({
-      //   message: 'Hello World2!'
-      // });
+    //api routes
+    this.express.use('/api/v1/heroes5', HeroRouter);
 
-    // all other routes are handled by Angular
-    //app.get('/*', function(req, res) {
-      res.sendFile(path.join(__dirname,'../../index.html'));
-    //});
-
-
+      // all other routes are handled by Angular
+    let router = express.Router();  
+    router.get('/', (req, res) => {
+      res.sendFile(path.join(__dirname,'../../../index.html'));
     });
-
-
-
-
-
     this.express.use('/', router);
 
-
-
-
-    this.express.use('/api/v1/heroes4', HeroRouter);
   }
 
 }

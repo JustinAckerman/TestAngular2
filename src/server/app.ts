@@ -28,8 +28,7 @@ class App {
 
   // Configure API endpoints.
   private routes(): void {
-    console.log("test32");
-    console.log("dir: " + __dirname + '/../../../../dist');
+     
     this.express.use('/', express.static(__dirname + '/../../../../dist'));
 
     //api routes

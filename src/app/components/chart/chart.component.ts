@@ -1,12 +1,29 @@
 import {Component, OnInit} from '@angular/core';
+import {DataService} from '../../services/data.service';
 
 @Component({
   moduleId: module.id,
   selector: 'chart',
-  templateUrl: 'chart.html'
+  templateUrl: 'chart.html',
+  providers: [DataService]
 })
 
-export class ChartComponent {
+export class ChartComponent implements OnInit{
+
+  isLoading = true;
+
+  ngOnInit() {
+
+    console.log("initing chart component");
+    // this.getCats();
+
+    // this.addCatForm = this.formBuilder.group({
+    //   name: this.name,
+    //   age: this.age,
+    //   weight: this.weight
+    // });
+  }
+
 //   public barChartOptions:any = {
 //     scaleShowVerticalLines: false,
 //     responsive: true
@@ -50,6 +67,19 @@ export class ChartComponent {
 //      */
 //   }
 // }
+
+constructor(public dataServ: DataService) {
+
+//console.log(dataServ.getHeroes());
+console.log("constructing chart component");
+
+    this.dataServ.getHeroes().subscribe(
+      data => console.log(data),
+      error => console.log(error),
+      () => this.isLoading = false
+    );
+
+}
 
 
   public lineChartData:Array<any> = [

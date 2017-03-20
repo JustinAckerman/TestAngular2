@@ -22,8 +22,6 @@ var App = (function () {
     };
     // Configure API endpoints.
     App.prototype.routes = function () {
-        console.log("test32");
-        console.log("dir: " + __dirname + '/../../../../dist');
         this.express.use('/', express.static(__dirname + '/../../../../dist'));
         //api routes
         this.express.use('/api/v1/heroes5', HeroRouter_1.default);

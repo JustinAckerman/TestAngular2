@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var router_1 = require("@angular/router");
+var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 var app_routing_module_1 = require("./app-routing.module");
 var home_component_1 = require("./components/home/home.component");
@@ -23,16 +24,29 @@ var AppModule = (function () {
     // Diagnostic only: inspect router configuration 
     function AppModule(router) {
         this.router = router;
-        console.log("app module constructor");
+        console.log("app module constructor2");
         // console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
     }
     return AppModule;
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, app_routing_module_1.AppRoutingModule, ng2_charts_1.ChartsModule],
-        declarations: [app_component_1.AppComponent, home_component_1.HomeComponent, about_component_1.AboutComponent, chart_component_1.ChartComponent, not_found_component_1.PageNotFoundComponent],
-        bootstrap: [app_component_1.AppComponent]
+        imports: [
+            platform_browser_1.BrowserModule,
+            app_routing_module_1.AppRoutingModule,
+            ng2_charts_1.ChartsModule,
+            http_1.HttpModule
+        ],
+        declarations: [
+            app_component_1.AppComponent,
+            home_component_1.HomeComponent,
+            about_component_1.AboutComponent,
+            chart_component_1.ChartComponent,
+            not_found_component_1.PageNotFoundComponent
+        ],
+        bootstrap: [
+            app_component_1.AppComponent
+        ]
     }),
     __metadata("design:paramtypes", [router_1.Router])
 ], AppModule);

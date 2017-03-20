@@ -37,7 +37,7 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      { preloadingStrategy: SelectivePreloadingStrategy, enableTracing: true }
+      { preloadingStrategy: SelectivePreloadingStrategy, enableTracing: false }
     )
   ],
   exports: [
